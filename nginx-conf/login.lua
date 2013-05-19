@@ -36,7 +36,7 @@ if ngx.req.get_method() == "POST" then
     			ngx.header["Set-Cookie"] = "uid="..uid..";path=/;domain=.maanas.co;expires="..ngx.cookie_time(expires)
     			ngx.header["Set-Cookie"] = "session_token="..token..";path=/;domain=.maanas.co;expires="..ngx.cookie_time(expires)
     			-- Redirect to Incoming Page
-                if (ngx.var.cookie_AGMSRedirectBack ~= nil) then
+                if (ngx.var.cookie_MNPLRedirectBack ~= nil) then
 	    		    return ngx.redirect(ngx.var.cookie_AGMSRedirectBack)
                 else 
                     return ngx.redirect("http://sso.maanas.co/sso/welcome.html")
