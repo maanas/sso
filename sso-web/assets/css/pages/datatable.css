@@ -1,0 +1,187 @@
+#content {
+  margin: 25px 0;
+}
+#content .flot {
+  min-height: 250px;
+  max-height: 250px;
+  height: 250px;
+  width: 100%;
+}
+#content .green {
+  color: #1f6f0f;
+}
+#content .red {
+  color: red;
+}
+#content .content {
+  padding: 0 20px 40px 20px;
+  background: white;
+  -webkit-box-shadow: 0 0 10px #000000;
+  -moz-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#content .content .center {
+  text-align: center;
+}
+#content .content .dataTables_info {
+  float: left;
+}
+#content .content div.dataTables_length label {
+  float: left;
+  text-align: left;
+}
+#content .content div.dataTables_length select {
+  width: 75px;
+}
+#content .content div.dataTables_filter label {
+  float: right;
+}
+#content .content div.dataTables_info {
+  padding-top: 8px;
+}
+#content .content div.dataTables_paginate {
+  float: right;
+  margin: 0;
+}
+#content .content table.table {
+  clear: both;
+  margin-bottom: 6px !important;
+}
+#content .content table.table thead .sorting,
+#content .content table.table thead .sorting_asc,
+#content .content table.table thead .sorting_desc,
+#content .content table.table thead .sorting_asc_disabled,
+#content .content table.table thead .sorting_desc_disabled {
+  cursor: pointer;
+}
+#content .content table.table thead .sorting {
+  background: url('../../img/sort_both.png') no-repeat center right;
+}
+#content .content table.table thead .sorting_asc {
+  background: url('../../img/sort_asc.png') no-repeat center right;
+}
+#content .content table.table thead .sorting_desc {
+  background: url('../../img/sort_desc.png') no-repeat center right;
+}
+#content .content table.table thead .sorting_asc_disabled {
+  background: url('../../img/sort_asc_disabled.png') no-repeat center right;
+}
+#content .content table.table thead .sorting_desc_disabled {
+  background: url('../../img/sort_desc_disabled.png') no-repeat center right;
+}
+#content .content table.table thead tr th:focus {
+  outline: none;
+}
+
+#content .content .site_error {
+  padding: 180px 0;
+  font-size: 300px;
+  text-align: center;
+  text-shadow: 0px 0px 10px #000000;
+  filter: dropshadow(color=#000000, offx=0, offy=0);
+}
+#content .content .error_desc {
+  text-align: center;
+  font-size: 20px;
+}
+#content .content .tab-content {
+  overflow: hidden;
+}
+#content .content .page-header {
+  padding-bottom: 5px;
+  border-color: #ddd;
+}
+#content .content .page-header.nm {
+  margin-bottom: 2px;
+}
+#content .content .page-header.tabs {
+  position: relative;
+}
+#content .content .page-header.tabs h2 {
+  float: left;
+}
+#content .content .page-header .nav.nav-pills,
+#content .content .page-header .nav.nav-tabs {
+  position: absolute;
+  right: 15px;
+  bottom: 2px;
+}
+#content .content .page-header .nav.nav-pills li a i,
+#content .content .page-header .nav.nav-tabs li a i {
+  margin-right: 5px;
+}
+#content .content .page-header .nav.nav-tabs {
+  bottom: 0;
+  border-bottom: 0;
+}
+#content .content .page-header .nav {
+  margin-bottom: 0;
+}
+#content .content table td {
+  vertical-align: middle;
+}
+#content .content table.media tr td img {
+  padding: 2px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#content .content table .action-buttons {
+  width: 82px;
+}
+#content .content table .action-buttons-small {
+  width: 55px;
+}
+#content .content table.table-nohead thead {
+  display: none;
+}
+#content .content table.table-nohead tbody tr:first-child td {
+  border-top: 0;
+}
+#content .content .well.stats {
+  padding: 15px;
+  margin-top: 20px;
+}
+#content .content .well.stats .statistic {
+  margin: 0;
+  padding: 0;
+  float: left;
+  height: 32px;
+  list-style-type: none;
+}
+#content .content .well.stats .statistic li {
+  display: block;
+  width: 4px;
+  float: left;
+  background: whiteSmoke;
+}
+#content .content .well.stats .statistic.statistic-red {
+  background: red;
+}
+#content .content .well.stats .statistic.statistic-grey {
+  background: #333;
+}
+#content .content .well.stats .statistic.statistic-blue {
+  background: blue;
+}
+#content .content .well.stats .statistic.statistic-green {
+  background: green;
+}
+#content .content .well.stats img {
+  float: left;
+}
+#content .content .well.stats .detail {
+  float: left;
+  margin-left: 16px;
+}
+#content .content .well.stats .detail span {
+  display: block;
+}
+#content .content .well.stats .detail span.detail-head {
+  font-weight: bold;
+  font-size: 16px;
+}

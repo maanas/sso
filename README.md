@@ -52,7 +52,8 @@ This will result in access being granted and the endpoint request is processed
 #### Invalid Credentials
 This will result in redirection for authentication
 
-
+#### Restriction on username and password
+The support only aplha user name and alpha password. Need to add regex to allow some special charactors.
 
 ## Project Roadmap
 Integrate SAML into the project so that the SSO can work at par with other commercial grade single sign on solutions but at much faster and efficiently.

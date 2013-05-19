@@ -1,0 +1,136 @@
+<?php 
+// Load Database Session Storage Connector
+require_once('/var/offlinev2/includes/agms_session.php');
+session_start(); 
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Login - Video Admin</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+    <link href="./assets/css/base-admin.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/pages/signin.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+	
+	<div class="navbar-inner">
+		
+		<div class="container">
+			
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			
+			<a class="brand" href="./">
+				AGMS VIDEO ADMIN				
+			</a>		
+			
+			<div class="nav-collapse">
+				<ul class="nav pull-right">
+					
+					<li class="">						
+						<a href="./dashboard.html" class="">
+							<i class="icon-chevron-left"></i>
+							Back to Dashboard
+						</a>
+						
+					</li>
+				</ul>
+				
+			</div><!--/.nav-collapse -->	
+	
+		</div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+
+
+
+<div class="account-container">
+	
+	<div class="content clearfix">
+		
+		<form action="./login.php" method="post" id="loginform">
+            <! -- Hidden hash field so that user has to come through the login form only 
+			Generate a one time hash md5 of the sessionid to ensure on brute force attack occurs
+			-->
+			
+			<h1>Sign In</h1>		
+			
+			<div class="login-fields">
+				
+				<p>Sign in using your AGMS Video Account:</p>
+				
+				<div class="field">
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
+				</div> <!-- /password -->
+				
+			</div> <!-- /login-fields -->
+			
+			<div class="login-actions">
+				
+				<span class="login-checkbox">
+					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+					<label class="choice" for="Field">Keep me signed in</label>
+				</span>
+									
+				<button class="button btn btn-warning btn-large" onclick="login(); return false;">Sign In</button>
+				
+			</div> <!-- .actions -->
+			
+			<input type="hidden" id="agms_hash" name="agms_hash" value="<?php echo md5(session_id());?>" />
+			
+		</form>
+		
+	</div> <!-- /content -->
+	
+</div> <!-- /account-container -->
+
+
+<!-- Text Under Box -->
+<div class="login-extra">
+	Remind <a href="#">Password</a>
+</div> <!-- /login-extra -->
+
+
+<script src="./assets/js/jquery-1.7.2.min.js"></script>
+<script src="./assets/js/bootstrap.js"></script>
+<script src="./assets/js/sha256.js"></script>
+<script src="./assets/js/signin.js"></script>
+
+<script type="text/javascript">
+    
+    function login() {
+        agms_hash = $('#agms_hash').val();
+        password = $('#password').val();
+        password_hash = CryptoJS.SHA256(password);
+        $('#password').val(password_hash);
+        $('#loginform').submit();
+        return false;
+    }
+</script>
+</body>
+</html>
