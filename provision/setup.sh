@@ -37,6 +37,9 @@ echo "mysql-server mysql-server/root_password password mysql" | sudo debconf-set
 echo "mysql-server mysql-server/root_password_again password mysql" | sudo  debconf-set-selections > /dev/null
 sudo apt-get -y install mysql-server > /dev/null
 
+### Change permission to execute all .sh
+sudo chmod +x /vagrant/provision/*.sh
+
 ### Install luajit
 sudo /vagrant/provision/lua.sh
 
