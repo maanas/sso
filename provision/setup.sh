@@ -36,12 +36,12 @@ sudo apt-get -y install libreadline-dev libncurses5-dev libpcre3-dev libssl-dev 
 echo "mysql-server mysql-server/root_password password mysql" | sudo debconf-set-selections > /dev/null
 echo "mysql-server mysql-server/root_password_again password mysql" | sudo  debconf-set-selections > /dev/null
 sudo apt-get -y install mysql-server > /dev/null
-
-### Change permission to execute all .sh
-sudo chmod +x /vagrant/provision/*.sh
-
-### Install luajit
-sudo /vagrant/provision/lua.sh
+### Create MySQL database symfony
+mysql -u root -pmysql -e "CREATE DATABASE IF NOT EXISTS sso;"
+### Add dba user allow connect from anywhere to MySQL
+mysql -u root -pmysql -e "CREATE USER 'dba'@'%' IDENTIFIED BY 'Y88dHbrXYj'; FLUSH PRIVILEGES;"
+### Grant all privileges on symfony database
+mysql -u root -pmysql -e "GRANT ALL PRIVILEGES ON sso.* TO 'dba'@'%'; FLUSH PRIVILEGES;"
 
 ### Install ngnix and modules
 sudo /vagrant/provision/nginx.sh

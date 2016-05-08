@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+### Install luajit
+## Clone lua
+sudo git clone  https://github.com/LuaJIT/LuaJIT /opt/sso/luajit
+
+## Make luajit
+cd /opt/sso/luajit/
+sudo make 
+sudo make install
+
+## Symlink lua
+sudo ln -s /usr/local/lib/libluajit-5.1.so.2.0.4 /usr/local/lib/liblua.so
+
+
 ## Clone nginx from git
 sudo tar -zxvf /vagrant/provision/source/nginx-1.9.15.tar.gz -C /opt/sso/
 
@@ -31,11 +44,38 @@ export LUA_INC=/usr/local/include/luajit-2.0/
 ## Chown /opt/sso
 sudo chown -R vagrant:vagrant /opt/sso
 
-## Build nginx
-/vagrant/provision/build.sh
-
 ## Make directories
 sudo mkdir /etc/nginx
 sudo chown vagrant:vagrant /etc/nginx
 sudo mkdir /var/log/nginx
 sudo chown vagrant:vagrant /var/log/nginx
+
+## Build nginx
+cd /opt/sso/nginx-1.9.15
+./configure \
+--user=vagrant                        \
+--group=vagrant                       \
+--sbin-path=/usr/sbin/nginx           \
+--conf-path=/etc/nginx/nginx.conf     \
+--pid-path=/var/run/nginx.pid         \
+--lock-path=/var/run/nginx.lock       \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--with-http_gzip_static_module        \
+--with-http_stub_status_module        \
+--with-http_ssl_module                \
+--with-pcre                           \
+--with-file-aio                       \
+--with-http_realip_module             \
+--add-module=/opt/sso/ngx_devel_kit   \
+--add-module=/opt/sso/lua-nginx-module \
+--add-module=/opt/sso/echo-nginx-module \
+--add-module=/opt/sso/rds-json-nginx-module 
+	
+
+make -j2
+sudo make install
+
+## Change owenrship permissions
+sudo chown vagrant:vagrant /var/log/nginx
+sudo chown vagrant:vagrant /usr/local/nginx
