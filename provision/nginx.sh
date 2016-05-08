@@ -82,3 +82,13 @@ sudo chown vagrant:vagrant /usr/local/nginx
 
 ## Make synlinks
 sudo ln -s /vagrant/conf /etc/nginx/conf
+
+## Copy startup script
+sudo cp /vagrant/provision/template/nginx /etc/init.d/nginx
+sudo chmod +x /etc/init.d/nginx
+
+## Copy nginx conf
+sudo cp /vagrant/provision/template/nginx.conf /etc/nginx/nginx.conf
+
+## Copy default conf
+sudo cp /vagrant/provision/template/default.conf /etc/nginx/conf/default.conf
