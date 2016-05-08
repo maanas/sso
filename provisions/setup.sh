@@ -23,12 +23,14 @@ sudo apt-get update
 echo "Installing Essential Packages curl vim zip unzip python pip"
 sudo apt-get install -y python-software-properties curl vim zip unzip python-pip git > /dev/null
 
-### Install ngnix
-sudo apt-get install -y nginx
-sudo cp /vagrant/provision/templates/nginx.conf /etc/nginx/nginx.conf
-sudo cp /vagrant/provision/templates/default /etc/nginx/sites-available/default
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx restart
+### Install build tools
+echo "Installing build toos"
+sudo apt-get install build-essential make perl
+### Install project dependencies
+echo "Installing project dependencies"
+sudo apt-get install libreadline-dev libncurses5-dev libpcre3-dev libssl-dev  
+
+### Install ngnix and modules
 
 ### echo success message
 echo "You've been provisioned"

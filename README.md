@@ -42,6 +42,5 @@ The support only alpha user name and alpha password. Need to add regex to allow 
 ## Project Roadmap
 Integrate SAML into the project so that the SSO can work at par with other commercial grade single sign on solutions but at much faster and efficiently.
 
-## Cavets
-I have dumped the actual code and the documentation is still needs lot of fine tuning. Do drop me a mail in case you need any help and explanation as how things are done.
-
+## Credits
+[Yichun Zhang](https://github.com/agentzh)
