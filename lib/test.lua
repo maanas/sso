@@ -1,5 +1,5 @@
 -- Test lua file
 local sso = require "sso"
--- res = sso:get_hash()
+local res = sso:get_hash()
 
-ngx.say('test')
+ngx.say(res)
