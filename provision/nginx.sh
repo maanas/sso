@@ -92,3 +92,8 @@ sudo cp /vagrant/provision/template/nginx.conf /etc/nginx/nginx.conf
 
 ## Copy default conf
 sudo cp /vagrant/provision/template/default.conf /etc/nginx/conf/default.conf
+
+## Install cjson
+export LUA_INCLUDE_DIR=/usr/local/include/luajit-2.0/
+cd /opt/sso/lua-cjson
+sudo make install
