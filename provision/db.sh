@@ -1,11 +1,8 @@
-lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" "line=#bind-address = 0.0.0.0"
-  notify: restart mysql
+### Create MySQL database symfony
+mysql -u root -pmysql -e "CREATE DATABASE IF NOT EXISTS sso;"
 
-- name: Create MySQL database symfony
-  command: mysql -u root -e "CREATE DATABASE IF NOT EXISTS symfony;"
+### Add dba user allow connect from anywhere to MySQL
+mysql -u root -pmysql -e "CREATE USER 'dba'@'%' IDENTIFIED BY 'Y88dHbrXYj'; FLUSH PRIVILEGES;"
 
-- name: Add symfony user allow connect from anywhere to MySQL
-  command: mysql -u root -e "CREATE USER 'symfony'@'%' IDENTIFIED BY 'mysymfonydatabasepassword'; FLUSH PRIVILEGES;"
-
-- name: Grant all privileges on symfony database
-  command: mysql -u root -e "GRANT ALL PRIVILEGES ON symfony.* TO 'symfony'@'%'; FLUSH PRIVILEGES;"
+### Grant all privileges on symfony database
+mysql -u root -pmysql -e "GRANT ALL PRIVILEGES ON sso.* TO 'dba'@'%'; FLUSH PRIVILEGES;"

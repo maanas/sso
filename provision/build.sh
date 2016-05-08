@@ -17,7 +17,6 @@ cd /opt/sso/nginx-1.9.15
 --with-file-aio                       \
 --with-http_realip_module             \
 --add-module=/opt/sso/ngx_devel_kit   \
---add-module=/opt/sso/ngx_devel_kit   \
 --add-module=/opt/sso/lua-nginx-module \
 --add-module=/opt/sso/echo-nginx-module \
 --add-module=/opt/sso/rds-json-nginx-module 
