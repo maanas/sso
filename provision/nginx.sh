@@ -79,3 +79,6 @@ sudo make install
 ## Change owenrship permissions
 sudo chown vagrant:vagrant /var/log/nginx
 sudo chown vagrant:vagrant /usr/local/nginx
+
+## Make synlinks
+sudo ln -s /vagrant/conf /etc/nginx/conf
